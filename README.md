@@ -16,3 +16,5 @@ Criei uniques para o campo de CPF e Email com o objetivo de deixar o sistema mai
 Também utilizei o Lombok para evitar a geração de getter, setter e contrutores, por exemplo.
 
 Em relação aos Enums, tomei a decisão de salvar os mesmos como string em banco, por conta de ser uma aplicação pequena e ser mais facil de implementar.
+
+Sinta-se à vontade para questionar!
