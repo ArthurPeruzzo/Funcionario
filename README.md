@@ -17,4 +17,9 @@ Também utilizei o Lombok para evitar a geração de getter, setter e contrutore
 
 Em relação aos Enums, tomei a decisão de salvar os mesmos como string em banco, por conta de ser uma aplicação pequena e ser mais facil de implementar.
 
+utilizei o PostgreSQL como banco de dados por já trabalhar com ele.
+
+Para inicializar a aplicação somente será necessário configurar um banco postgres localmente.
+No arquivo application.properties já está configurado tudo o que precisa. Somente será necessário criar um banco na mesma porta e com o mesmo nome, caso deseje.
+
 Sinta-se à vontade para questionar!
