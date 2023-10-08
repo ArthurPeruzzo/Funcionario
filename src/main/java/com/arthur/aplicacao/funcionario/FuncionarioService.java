@@ -1,43 +1,13 @@
 package com.arthur.aplicacao.funcionario;
 
-import com.arthur.aplicacao.funcionario.interfaces.FuncionarioQuery;
-import org.springframework.stereotype.Service;
-
 import java.util.List;
 
-@Service
-public class FuncionarioService {
+public interface FuncionarioService {
 
-    final FuncionarioRepository funcionarioRepository;
-
-    public FuncionarioService(FuncionarioRepository funcionarioRepository) {
-        this.funcionarioRepository = funcionarioRepository;
-    }
-
-    public Funcionario inserirFuncionario(Funcionario funcionario) {
-        return funcionarioRepository.save(funcionario);
-    }
-
-    public Funcionario buscarFuncionarioPorId(Long id) {
-        return funcionarioRepository.findById(id).orElse(null);
-    }
-
-    public List<FuncionarioQuery> buscarTodosOsFuncionario() {
-        List<FuncionarioQuery> funcionarios = funcionarioRepository.buscaTodosOsFuncionarios().stream().toList();
-        return funcionarios;
-    }
-
-    public List<FuncionarioQuery> buscarFuncionarioPorNomeOuCpf(String filtro) {
-        List<FuncionarioQuery> funcionarios = funcionarioRepository.buscaFuncionarioPorNomeOuCpf(filtro).stream().toList();
-        return funcionarios;
-    }
-
-    public Funcionario atualizarFuncionario(Funcionario funcionario) {
-        return funcionarioRepository.save(funcionario);
-    }
-
-    public void deletarFuncionario(Long id) {
-        funcionarioRepository.deleteById(id);
-    }
-
+    Funcionario inserirFuncionario(Funcionario funcionario);
+    Funcionario buscarFuncionarioPorId(Long id);
+    List<Funcionario> buscarTodosOsFuncionario();
+    List<Funcionario> buscarFuncionarioPorNomeOuCpf(String filtro);
+    Funcionario atualizarFuncionario(Funcionario funcionario);
+    void deletarFuncionario(Long id);
 }

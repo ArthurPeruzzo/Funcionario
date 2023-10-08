@@ -1,8 +1,8 @@
 package com.arthur.aplicacao.funcionario;
 
-import com.arthur.aplicacao.funcionario.interfaces.FuncionarioQuery;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,14 +11,11 @@ import java.util.List;
 
 @Api("Funcionário")
 @RestController
-@RequestMapping(value = "/api/funcionario")
+@RequiredArgsConstructor
+@RequestMapping(value = "/funcionario")
 public class FuncionarioController {
 
-    final FuncionarioService funcionarioService;
-
-    public FuncionarioController(FuncionarioService funcionarioService) {
-        this.funcionarioService = funcionarioService;
-    }
+    private final FuncionarioService funcionarioService;
 
     @GetMapping("/buscar/{id}")
     @ApiOperation(value = "Buscar funcionário por id")
@@ -27,17 +24,17 @@ public class FuncionarioController {
         return ResponseEntity.ok().body(funcionario);
     }
 
-    @GetMapping("/buscarTodos")
+    @GetMapping("/buscar-todos")
     @ApiOperation(value = "Buscar todos os funcionários")
-    public ResponseEntity<List<FuncionarioQuery>> buscarTodosOsFuncionarios(){
-        List<FuncionarioQuery> funcionarios = funcionarioService.buscarTodosOsFuncionario();
+    public ResponseEntity<List<Funcionario>> buscarTodosOsFuncionarios(){
+        List<Funcionario> funcionarios = funcionarioService.buscarTodosOsFuncionario();
         return ResponseEntity.ok().body(funcionarios);
     }
 
-    @GetMapping("/buscarTodos/{filtro}")
+    @GetMapping("/buscar-todos/{filtro}")
     @ApiOperation(value = "Buscar funcionários por cpf ou nome")
-    public ResponseEntity<List<FuncionarioQuery>> buscarFuncionariosPorCpfOuNome(@PathVariable(value = "filtro") String filtro){
-        List<FuncionarioQuery> funcionarios = funcionarioService.buscarFuncionarioPorNomeOuCpf(filtro);
+    public ResponseEntity<List<Funcionario>> buscarFuncionariosPorCpfOuNome(@PathVariable(value = "filtro") String filtro){
+        List<Funcionario> funcionarios = funcionarioService.buscarFuncionarioPorNomeOuCpf(filtro);
         return ResponseEntity.ok().body(funcionarios);
     }
 

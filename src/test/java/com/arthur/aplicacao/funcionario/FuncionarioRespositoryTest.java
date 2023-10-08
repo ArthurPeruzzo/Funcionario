@@ -2,7 +2,6 @@ package com.arthur.aplicacao.funcionario;
 
 import com.arthur.aplicacao.funcionario.enums.Departamento;
 import com.arthur.aplicacao.funcionario.enums.Status;
-import com.arthur.aplicacao.funcionario.interfaces.FuncionarioQuery;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -25,7 +24,7 @@ public class FuncionarioRespositoryTest {
     public void deveriaBuscarTodosOsFuncionarios(){
         Funcionario funcionario1 = funcionario1();
         funcionarioRepository.save(funcionario1);
-        List<FuncionarioQuery> funcionarioResultadoPesquisa = funcionarioRepository.buscaTodosOsFuncionarios().stream().toList();
+        List<Funcionario> funcionarioResultadoPesquisa = funcionarioRepository.buscaTodosOsFuncionarios();
         assertNotNull(funcionarioResultadoPesquisa);
     }
 
@@ -33,10 +32,10 @@ public class FuncionarioRespositoryTest {
     public void deveriaEncontrarFuncionarioPorCpfOuNome(){
         Funcionario funcionario1 = funcionario1();
         funcionarioRepository.save(funcionario1);
-        List<FuncionarioQuery> funcionarioResultadoPesquisaCpf = funcionarioRepository.buscaFuncionarioPorNomeOuCpf("43665555060").stream().toList();
+        List<Funcionario> funcionarioResultadoPesquisaCpf = funcionarioRepository.buscaFuncionarioPorNomeOuCpf("43665555060");
         assertNotNull(funcionarioResultadoPesquisaCpf);
 
-        List<FuncionarioQuery> funcionarioResultadoPesquisaNome = funcionarioRepository.buscaFuncionarioPorNomeOuCpf("Teste").stream().toList();
+        List<Funcionario> funcionarioResultadoPesquisaNome = funcionarioRepository.buscaFuncionarioPorNomeOuCpf("Teste");
         assertNotNull(funcionarioResultadoPesquisaNome);
     }
 

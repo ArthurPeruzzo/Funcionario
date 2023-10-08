@@ -1,4 +1,4 @@
-package com.arthur.aplicacao.funcionario.excecao;
+package com.arthur.aplicacao.excecao;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

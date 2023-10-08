@@ -22,7 +22,7 @@ public class FuncionarioControllerTest {
 
     @Test
     public void DeveRetornarError400SeNomeComecaComLetraMinuscula() throws Exception {
-        URI uri = new URI("/api/funcionario/inserir");
+        URI uri = new URI("/funcionario/inserir");
         String jsonFuncionario = funcionarioTesteNomeLetraMinuscula();
 
         mockMvc.perform(MockMvcRequestBuilders

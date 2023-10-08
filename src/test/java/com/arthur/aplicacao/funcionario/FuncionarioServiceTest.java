@@ -16,7 +16,7 @@ import static org.mockito.Mockito.*;
 
 class FuncionarioServiceTest {
 
-    FuncionarioService funcionarioService;
+    FuncionarioServiceImpl funcionarioService;
 
     @Mock
     private FuncionarioRepository funcionarioRepository;
@@ -24,7 +24,7 @@ class FuncionarioServiceTest {
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
-        this.funcionarioService = new FuncionarioService(funcionarioRepository);
+        this.funcionarioService = new FuncionarioServiceImpl(funcionarioRepository);
     }
 
     @Test
