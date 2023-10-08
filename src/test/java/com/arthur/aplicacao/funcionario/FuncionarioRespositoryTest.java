@@ -69,19 +69,19 @@ public class FuncionarioRespositoryTest {
         Funcionario funcionario = funcionario();
         Funcionario funcionarioSalvo = funcionarioRepository.save(funcionario);
 
-        Funcionario funcionarioEncontrado = funcionarioRepository.findById(funcionarioSalvo.getFuncionarioId()).orElse(null);
+        Funcionario funcionarioEncontrado = funcionarioRepository.findById(funcionarioSalvo.getId()).orElse(null);
 
         assertNotNull(funcionarioEncontrado);
-        assertEquals(funcionarioEncontrado.getFuncionarioId(), funcionarioSalvo.getFuncionarioId());
+        assertEquals(funcionarioEncontrado.getId(), funcionarioSalvo.getId());
     }
 
     @Test
     public void deveriaDeletarFuncionario(){
         Funcionario funcionario = funcionario();
         Funcionario funcionarioSalvo = funcionarioRepository.save(funcionario);
-        Long funcionarioId = funcionarioSalvo.getFuncionarioId();
+        Long funcionarioId = funcionarioSalvo.getId();
 
-        funcionarioRepository.deleteById(funcionarioSalvo.getFuncionarioId());
+        funcionarioRepository.deleteById(funcionarioSalvo.getId());
         Funcionario funcionarioEncontrado = funcionarioRepository.findById(funcionarioId).orElse(null);
         assertNull(funcionarioEncontrado);
     }
