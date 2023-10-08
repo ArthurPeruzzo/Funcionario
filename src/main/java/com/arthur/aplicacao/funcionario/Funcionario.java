@@ -22,7 +22,7 @@ public class Funcionario {
     @ApiModelProperty("Identificador")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="funcionario_seq")
     @Column(name = "funcionarioid")
-    private Long funcionarioId;
+    private Long id;
 
     @Size(max = 30, min = 2, message = "O nome deve possuir entre 2 e 30 caracteres")
     @ApiModelProperty("Nome")
